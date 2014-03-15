@@ -29,51 +29,51 @@ import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 public class SolveMoves {
-    public static class Map extends Mapper<IntWritable, MovesWritable, IntWritable, ByteWritable> {
-        /**
-         * Configuration and setup that occurs before map gets called for the first time.
-         *
-         **/
-        @Override
-        public void setup(Context context) {
-        }
-
-        /**
-         * The map function for the second mapreduce that you should be filling out.
-         */
-        @Override
-        public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
-            /* YOUR CODE HERE */
-
-        }
+  public static class Map extends Mapper<IntWritable, MovesWritable, IntWritable, ByteWritable> {
+    /**
+     * Configuration and setup that occurs before map gets called for the first time.
+     *
+     **/
+    @Override
+    public void setup(Context context) {
     }
 
-    public static class Reduce extends Reducer<IntWritable, ByteWritable, IntWritable, MovesWritable> {
+    /**
+     * The map function for the second mapreduce that you should be filling out.
+     */
+    @Override
+    public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
+      /* YOUR CODE HERE */
 
-        int boardWidth;
-        int boardHeight;
-        int connectWin;
-        boolean OTurn;
-        /**
-         * Configuration and setup that occurs before map gets called for the first time.
-         *
-         **/
-        @Override
-        public void setup(Context context) {
-            // load up the config vars specified in Proj2.java#main()
-            boardWidth = context.getConfiguration().getInt("boardWidth", 0);
-            boardHeight = context.getConfiguration().getInt("boardHeight", 0);
-            connectWin = context.getConfiguration().getInt("connectWin", 0);
-            OTurn = context.getConfiguration().getBoolean("OTurn", true);
-        }
-
-        /**
-         * The reduce function for the first mapreduce that you should be filling out.
-         */
-        @Override
-        public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
-            /* YOUR CODE HERE */
-
-        }
     }
+  }
+
+  public static class Reduce extends Reducer<IntWritable, ByteWritable, IntWritable, MovesWritable> {
+
+    int boardWidth;
+    int boardHeight;
+    int connectWin;
+    boolean OTurn;
+    /**
+     * Configuration and setup that occurs before map gets called for the first time.
+     *
+     **/
+    @Override
+    public void setup(Context context) {
+      // load up the config vars specified in Proj2.java#main()
+      boardWidth = context.getConfiguration().getInt("boardWidth", 0);
+      boardHeight = context.getConfiguration().getInt("boardHeight", 0);
+      connectWin = context.getConfiguration().getInt("connectWin", 0);
+      OTurn = context.getConfiguration().getBoolean("OTurn", true);
+    }
+
+    /**
+     * The reduce function for the first mapreduce that you should be filling out.
+     */
+    @Override
+    public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
+      /* YOUR CODE HERE */
+
+    }
+  }
 }
