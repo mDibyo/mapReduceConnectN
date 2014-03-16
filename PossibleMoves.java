@@ -51,7 +51,23 @@ public class PossibleMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       String gameState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      System.out.println(gameState);
+      System.out.println("**************^^^^^^^^^" + gameState);
+      System.out.println(gameState.length());
+      char player = 'X';
+      if (OTurn) {
+        player = 'O';
+      }
+      for (int i = 0; i < boardWidth; i++) {
+        for (int j = 0; j < boardHeight; j++) {
+          if (gameState.charAt(i*boardHeight + j) == ' ') {
+            String futureState = gameState.substring(0, i*boardHeight + j - 1) + player + gameState.substring(i*boardHeight + j);
+            IntWritable hashedFutureState = new IntWritable();
+            hashedFutureState.set(Proj2Util.gameHasher(futureState, boardWidth, boardHeight));
+            context.write(hashedFutureState, key);
+            break;
+          } 
+        }
+      }
     }
   }
 
