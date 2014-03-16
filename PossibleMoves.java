@@ -50,19 +50,20 @@ public class PossibleMoves {
      */
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
-      String gameState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      System.out.println("**************^^^^^^^^^" + gameState);
-      System.out.println(gameState.length());
+      String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
+      System.out.println("**************^^^^^^^^^" + currentState);
+      System.out.println(currentState.length());
       char player = 'X';
       if (OTurn) {
         player = 'O';
       }
       for (int i = 0; i < boardWidth; i++) {
         for (int j = 0; j < boardHeight; j++) {
-          if (gameState.charAt(i*boardHeight + j) == ' ') {
-            String futureState = gameState.substring(0, i*boardHeight + j - 1) + player + gameState.substring(i*boardHeight + j);
+          if (currentState.charAt(i*boardHeight + j) == ' ') {
+            char[] futureCharArray = currentState.toCharArray();
+            futureCharArray[i*boardHeight + j] = player;
             IntWritable hashedFutureState = new IntWritable();
-            hashedFutureState.set(Proj2Util.gameHasher(futureState, boardWidth, boardHeight));
+            hashedFutureState.set(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight));
             context.write(hashedFutureState, key);
             break;
           } 
@@ -97,7 +98,8 @@ public class PossibleMoves {
      */
     @Override
     public void reduce(IntWritable key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-      /* YOU CODE HERE */
+      MovesWritable currentState = new MovesWritable();
+      String gameState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
 
     }
   }
