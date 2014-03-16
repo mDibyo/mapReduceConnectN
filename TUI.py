@@ -28,7 +28,7 @@ def aiMove(board, X_turn, width, height):
                 value = cur_value
             elif value == 0 or value & 3 < cur_value & 3 or (value & 3 == cur_value & 3 and (value >> 2) < (cur_value >> 2)):
               if (X_turn and value & 3 == 2) or ((not X_turn) and value & 3 == 1):
-                  break
+                break
               best_board = list(board)
               value = cur_value
             break

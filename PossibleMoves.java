@@ -51,8 +51,7 @@ public class PossibleMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      System.out.println("**************^^^^^^^^^" + currentState);
-      System.out.println(currentState.length());
+      System.out.println(currentState);
       char player = 'X';
       if (OTurn) {
         player = 'O';
@@ -100,7 +99,31 @@ public class PossibleMoves {
     public void reduce(IntWritable key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
       MovesWritable currentState = new MovesWritable();
       String gameState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-
+      ArrayList<Integer> parents = new ArrayList<Integer>(1);
+      for (IntWritable value: values) {
+        parents.add(value.get());
+      }
+      Integer[] parentsArray = parents.toArray(new Integer[parents.size()]);
+      int[] intParentsArray = new int[parentsArray.length];
+      for (int i = 0; i < parentsArray.length; i++) {
+        intParentsArray[i] = parentsArray[i].intValue();
+      }
+      currentState.setMoves(intParentsArray);
+      // currentState.setMoves(new int[](parents.toArray(new int[])));
+      if (Proj2Util.gameFinished(gameState, boardWidth, boardHeight, connectWin)) {
+        if (OTurn) {
+          currentState.setStatus(1);
+        } else {
+          currentState.setStatus(2);
+        }
+      } else {
+        if (lastRound) {
+          currentState.setStatus(3);
+        } else {
+          currentState.setStatus(0);
+        }
+      }
+      context.write(key, currentState);
     }
   }
 }
