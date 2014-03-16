@@ -50,8 +50,8 @@ public class PossibleMoves {
      */
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
-      String gameState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      System.out.println(gameState);
+      String gameState = Proj2Util.gameUnhasher(key, boardWidth, boardHeight);
+
     }
   }
 
