@@ -64,9 +64,7 @@ public class PossibleMoves {
               futureCharArray[i*boardHeight + j] = player;
               // System.out.println(new String(futureCharArray));
               // System.out.println(gameState(new String(futureCharArray)));
-              IntWritable hashedFutureState = new IntWritable();
-              hashedFutureState.set(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight));
-              context.write(hashedFutureState, key);
+              context.write(new IntWritable(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight)), key);
               break;
             } 
           }
@@ -143,7 +141,7 @@ public class PossibleMoves {
         }
       }
       // System.out.println(currentState.getStatus());
-      System.out.println(currentState.getMovesToEnd());
+      // System.out.println(currentState.getMovesToEnd());
       context.write(key, currentState);
     }
   }

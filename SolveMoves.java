@@ -44,8 +44,6 @@ public class SolveMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       for (int move: val.getMoves()) {
-        // IntWritable moveKey = new IntWritable;
-        // moveKey.set(move);
         context.write(new IntWritable(move), new ByteWritable(val.getValue()));
       }
     }
@@ -75,8 +73,7 @@ public class SolveMoves {
      */
     @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
-      /* YOUR CODE HERE */
-
+      
     }
   }
 }

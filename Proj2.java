@@ -138,7 +138,6 @@ public class Proj2 {
       firstJob.waitForCompletion(true);
     }
 
-    System.exit(0);
 
     // Setting up the SolveMoves run. This is the second of the two map reduces you write.
     for (int i = area; i > 1; i--) {
