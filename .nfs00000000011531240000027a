@@ -121,16 +121,12 @@ public class PossibleMoves {
       for (IntWritable value: values) {
         parents.add(value.get());
       }
-      int[] parentsArray = new int[parents.size()];
-      for (int i = 0; i < parents.size(); i++) {
-        parentsArray[i] = parents.get(i).intValue();
+      Integer[] parentsArray = parents.toArray(new Integer[parents.size()]);
+      int[] intParentsArray = new int[parentsArray.length];
+      for (int i = 0; i < parentsArray.length; i++) {
+        intParentsArray[i] = parentsArray[i].intValue();
       }
-      // Integer[] parentsArray = parents.toArray(new Integer[parents.size()]);
-      // int[] intParentsArray = new int[parentsArray.length];
-      // for (int i = 0; i < parentsArray.length; i++) {
-      //   intParentsArray[i] = parentsArray[i].intValue();
-      // }
-      currentState.setMoves(parentsArray);
+      currentState.setMoves(intParentsArray);
       if (Proj2Util.gameFinished(gameState, boardWidth, boardHeight, connectWin)) {
         if (OTurn) {
           currentState.setStatus(1);

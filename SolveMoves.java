@@ -78,7 +78,6 @@ public class SolveMoves {
       HashMap<MovesWritable, Integer> win = new HashMap<MovesWritable, Integer>();
       HashMap<MovesWritable, Integer> tie = new HashMap<MovesWritable, Integer>();
       HashMap<MovesWritable, Integer> loss = new HashMap<MovesWritable, Integer>();
-      MovesWritable bestMove;
       for (ByteWritable value: values) {
         MovesWritable move = new MovesWritable();
         move.setValue(value.get());
@@ -88,30 +87,82 @@ public class SolveMoves {
           dict.put(move, dict.get(move) + 1);
         }
       }
+      // for (MovesWritable move: dict.keySet()) {
+      //   if (dict.get(move) == 1) {
+      //     if (move.getMovesToEnd() != 0) {
+      //       dict.remove(move);
+      //     }
+      //   }
+      // }
+      // Minimax to find best move
+      int winStatus = 2;
+      char player = 'X';
+      if (!OTurn) {
+        winStatus = 1;
+        player = 'O';
+      }
       for (MovesWritable move: dict.keySet()) {
         if (dict.get(move) == 1) {
           if (move.getMovesToEnd() != 0) {
-            dict.remove(move);
+            // dict.remove(move);
+            continue;
           }
         }
-      }
-      int winStatus = 2;
-      if (OTurn) {
-        winStatus = 1;
-      }
-      for (MovesWritable move: dict.keySet()) {
-        // move.setMovesToEnd(move.getMovesToEnd + 1);
         int status = move.getStatus();
         if (status == winStatus) {
           win.put(move, move.getMovesToEnd());
         } else if (status == 3) {
           tie.put(move, move.getMovesToEnd());
-        } else {
+        } else if (status != 0) {
           loss.put(move, move.getMovesToEnd());
         }
       }
-
-
+      MovesWritable bestMove = new MovesWritable();
+      if (!win.isEmpty()) {
+        int bestNumberOfMoves = boardWidth * boardHeight + 1;
+        for (MovesWritable move: win.keySet()) {
+          if (move.getMovesToEnd() < bestNumberOfMoves) {
+            bestMove = move;
+            bestNumberOfMoves = bestMove.getMovesToEnd();
+          }
+        }
+      } else if (!tie.isEmpty()) {
+        int bestNumberOfMoves = 0;
+        for (MovesWritable move: tie.keySet()) {
+          if (move.getMovesToEnd() > bestNumberOfMoves) {
+            bestMove = move;
+            bestNumberOfMoves = bestMove.getMovesToEnd();
+          }
+        }
+      } else if (!loss.isEmpty()) {
+        int bestNumberOfMoves = 0;
+        for (MovesWritable move: loss.keySet()) {
+          if (move.getMovesToEnd() > bestNumberOfMoves) {
+            bestMove = move;
+            bestNumberOfMoves = bestMove.getMovesToEnd();
+          }
+        }
+      }
+      // Work on best move
+      String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
+      bestMove.setMovesToEnd(bestMove.getMovesToEnd() + 1);
+      ArrayList<IntWritable> allParents = new ArrayList<IntWritable>(1);
+      for (int i = 0; i < boardWidth; i++) {
+        for (int j = boardHeight - 1; j >= 0; j--) {
+          if (currentState.charAt(i*boardHeight + j) == player) {
+            char[] parentCharArray = currentState.toCharArray();
+            parentCharArray[i*boardHeight + j] = ' ';
+            allParents.add(new IntWritable(Proj2Util.gameHasher(new String(parentCharArray), boardWidth, boardHeight)));
+            break;
+          }
+        }
+      }
+      int [] allParentsArray = new int[allParents.size()];
+      for (int i = 0; i < allParents.size(); i++) {
+        allParentsArray[i] = allParents.get(i).get();
+      }
+      bestMove.setMoves(allParentsArray);
+      context.write(key, bestMove);
     }
   }
 }
