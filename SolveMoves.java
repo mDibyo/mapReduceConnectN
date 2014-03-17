@@ -75,7 +75,10 @@ public class SolveMoves {
     @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {   
       HashMap<MovesWritable, Integer> dict = new HashMap<MovesWritable, Integer>();
-      // ArrayList<Byte> bytes = new ArrayList<Byte>(1);
+      HashMap<MovesWritable, Integer> win = new HashMap<MovesWritable, Integer>();
+      HashMap<MovesWritable, Integer> tie = new HashMap<MovesWritable, Integer>();
+      HashMap<MovesWritable, Integer> loss = new HashMap<MovesWritable, Integer>();
+      MovesWritable bestMove;
       for (ByteWritable value: values) {
         MovesWritable move = new MovesWritable();
         move.setValue(value.get());
@@ -85,9 +88,29 @@ public class SolveMoves {
           dict.put(move, dict.get(move) + 1);
         }
       }
-      // for (ByteWritable)
+      for (MovesWritable move: dict.keySet()) {
+        if (dict.get(move) == 1) {
+          if (move.getMovesToEnd() != 0) {
+            dict.remove(move);
+          }
+        }
+      }
+      int winStatus = 2;
+      if (OTurn) {
+        winStatus = 1;
+      }
+      for (MovesWritable move: dict.keySet()) {
+        // move.setMovesToEnd(move.getMovesToEnd + 1);
+        int status = move.getStatus();
+        if (status == winStatus) {
+          win.put(move, move.getMovesToEnd());
+        } else if (status == 3) {
+          tie.put(move, move.getMovesToEnd());
+        } else {
+          loss.put(move, move.getMovesToEnd());
+        }
+      }
 
-      // val.setMovesToEnd(val.getMovesToEnd + 1);
 
     }
   }
