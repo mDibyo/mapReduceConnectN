@@ -43,6 +43,7 @@ public class SolveMoves {
      */
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
+      // just one copy but that one copy is not a turn of 0;
       for (int move: val.getMoves()) {
         context.write(new IntWritable(move), new ByteWritable(val.getValue()));
       }
@@ -69,11 +70,25 @@ public class SolveMoves {
     }
 
     /**
-     * The reduce function for the first mapreduce that you should be filling out.
+     * The reduce function for the second mapreduce that you should be filling out.
      */
     @Override
-    public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
-      
+    public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {   
+      HashMap<MovesWritable, Integer> dict = new HashMap<MovesWritable, Integer>();
+      // ArrayList<Byte> bytes = new ArrayList<Byte>(1);
+      for (ByteWritable value: values) {
+        MovesWritable move = new MovesWritable();
+        move.setValue(value.get());
+        if (!dict.containsKey(move)) {
+          dict.put(move, 1);
+        } else {
+          dict.put(move, dict.get(move) + 1);
+        }
+      }
+      // for (ByteWritable)
+
+      // val.setMovesToEnd(val.getMovesToEnd + 1);
+
     }
   }
 }
