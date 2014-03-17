@@ -56,18 +56,20 @@ public class PossibleMoves {
       if (OTurn) {
         player = 'O';
       }
-      for (int i = 0; i < boardWidth; i++) {
-        for (int j = 0; j < boardHeight; j++) {
-          if (currentState.charAt(i*boardHeight + j) == ' ') {
-            char[] futureCharArray = currentState.toCharArray();
-            futureCharArray[i*boardHeight + j] = player;
-            // System.out.println(new String(futureCharArray));
-            // System.out.println(gameState(new String(futureCharArray)));
-            IntWritable hashedFutureState = new IntWritable();
-            hashedFutureState.set(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight));
-            context.write(hashedFutureState, key);
-            break;
-          } 
+      if (val.getStatus() == 0) {
+        for (int i = 0; i < boardWidth; i++) {
+          for (int j = 0; j < boardHeight; j++) {
+            if (currentState.charAt(i*boardHeight + j) == ' ') {
+              char[] futureCharArray = currentState.toCharArray();
+              futureCharArray[i*boardHeight + j] = player;
+              // System.out.println(new String(futureCharArray));
+              // System.out.println(gameState(new String(futureCharArray)));
+              IntWritable hashedFutureState = new IntWritable();
+              hashedFutureState.set(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight));
+              context.write(hashedFutureState, key);
+              break;
+            } 
+          }
         }
       }
     }
@@ -86,7 +88,6 @@ public class PossibleMoves {
       }
       return repr;
     }
-
 
   }
 
