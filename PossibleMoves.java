@@ -51,7 +51,7 @@ public class PossibleMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      System.out.println(currentState);
+      // System.out.println(gameState(currentState));
       char player = 'X';
       if (OTurn) {
         player = 'O';
@@ -61,6 +61,8 @@ public class PossibleMoves {
           if (currentState.charAt(i*boardHeight + j) == ' ') {
             char[] futureCharArray = currentState.toCharArray();
             futureCharArray[i*boardHeight + j] = player;
+            // System.out.println(new String(futureCharArray));
+            // System.out.println(gameState(new String(futureCharArray)));
             IntWritable hashedFutureState = new IntWritable();
             hashedFutureState.set(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight));
             context.write(hashedFutureState, key);
@@ -69,6 +71,23 @@ public class PossibleMoves {
         }
       }
     }
+
+    public String gameState(String game) {
+      String repr = "";
+      char[] gameChars = game.toCharArray();
+      for (int j = boardHeight - 1; j >= 0; j--) {
+        for (int i = 0; i < boardWidth; i++) {
+          repr += gameChars[i*boardHeight + j];
+        }
+        repr += '\n';
+      }
+      for (int j = 0; j < boardWidth; j++) {
+        repr += '=';
+      }
+      return repr;
+    }
+
+
   }
 
   public static class Reduce extends Reducer<IntWritable, IntWritable, IntWritable, MovesWritable> {
@@ -109,7 +128,6 @@ public class PossibleMoves {
         intParentsArray[i] = parentsArray[i].intValue();
       }
       currentState.setMoves(intParentsArray);
-      // currentState.setMoves(new int[](parents.toArray(new int[])));
       if (Proj2Util.gameFinished(gameState, boardWidth, boardHeight, connectWin)) {
         if (OTurn) {
           currentState.setStatus(1);
@@ -123,6 +141,7 @@ public class PossibleMoves {
           currentState.setStatus(0);
         }
       }
+      // System.out.println(currentState.getStatus());
       context.write(key, currentState);
     }
   }
