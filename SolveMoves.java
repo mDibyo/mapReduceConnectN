@@ -126,6 +126,12 @@ public class SolveMoves {
       }
     }
 
+    /**
+     * Map the real status of the game with the status of the game for the specific player where
+     * win => 2, draw => 1 and loss => 0.
+     * @param  realStatus the status of the game as specified in value of MovesWritable
+     * @return the status of the game for the particular player
+     */
     private int getWinStatus(int realStatus) {
       if (realStatus == 3) {
         return 1;
@@ -144,6 +150,12 @@ public class SolveMoves {
       }
     }
 
+    /**
+     * Map the status of the game for the specific player back to the real status of the
+     * game.
+     * @param  winStatus the status of the game for the particular player
+     * @return the status of the game as specified in value of MovesWritable
+     */
     private int getRealStatus(int winStatus) {
       if (winStatus == 1) {
         return 3;

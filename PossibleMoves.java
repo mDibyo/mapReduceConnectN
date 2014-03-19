@@ -69,6 +69,11 @@ public class PossibleMoves {
       }
     }
 
+    /**
+     * A representation of the game board at any particular state
+     * @param  game the game board as hashed in moves of MovesWritable
+     * @return      the String representation of the game state
+     */
     public String gameState(String game) {
       String repr = "";
       char[] gameChars = game.toCharArray();
