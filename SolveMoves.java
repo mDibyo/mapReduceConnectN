@@ -82,7 +82,7 @@ public class SolveMoves {
       int bestMovesTillEnd = 0;
       boolean isValid = false;
       for (ByteWritable value: values) {
-        int currentStatus = getStatus(value.get() & 3);
+        int currentStatus = getWinStatus(value.get() & 3);
         // System.out.println(currentStatus);
         int currentMovesTillEnd = (int) (value.get() >> 2);
         // System.out.println(currentMovesTillEnd);
@@ -117,16 +117,18 @@ public class SolveMoves {
           bestStatus = currentStatus;
           bestMovesTillEnd = currentMovesTillEnd;
         }
+        System.out.println(currentStatus + ", " + bestStatus + ": " + currentMovesTillEnd + ", " + bestMovesTillEnd);
       } /*
       bestMovesTillEnd = mostMovesTillEnd;
       if (bestStatus == 2) {
         bestMovesTillEnd = leastMovesTillEnd;
       } */
-      System.out.println((bestStatus == 2) + "\t:" + bestMovesTillEnd);
+      // System.out.println((bestStatus == 2) + "\t:" + bestMovesTillEnd);
+      System.out.println("+++++++++++++++++++++");
       // If board is valid, generate parents and write to context
       if (isValid) {
         char player = 'O';
-        if (!OTurn) {
+        if (OTurn) {
           player = 'X';
         }
         String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
@@ -148,16 +150,16 @@ public class SolveMoves {
         // System.out.print(bestMovesTillEnd);
         // System.out.print("=>");
         // System.out.println(bestMovesTillEnd + 1);
-        MovesWritable move = new MovesWritable(bestStatus, bestMovesTillEnd + 1, allParentsArray);
+        MovesWritable move = new MovesWritable(getRealStatus(bestStatus), bestMovesTillEnd + 1, allParentsArray);
         context.write(key, move);
       }
     }
 
-    private int getStatus(int realStatus) {
+    private int getWinStatus(int realStatus) {
       // System.out.println(realStatus);
       if (realStatus == 3) {
         return 1;
-      } else if (!OTurn) {
+      } else if (OTurn) {
         if (realStatus == 1) {
           return 2;
         } else {
@@ -168,6 +170,24 @@ public class SolveMoves {
           return 2;
         } else {
           return 0;
+        }
+      }
+    }
+
+    private int getRealStatus(int winStatus) {
+      if (winStatus == 1) {
+        return 3;
+      } else if (OTurn) {
+        if (winStatus == 2) {
+          return 1;
+        } else {
+          return 2;
+        }
+      } else {
+        if (winStatus == 0) {
+          return 1;
+        } else {
+          return 2;
         }
       }
     }
