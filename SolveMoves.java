@@ -78,15 +78,28 @@ public class SolveMoves {
       
 
       int bestStatus = 0;
-      int leastMovesTillEnd = boardWidth*boardHeight + 1;
+      int bestMovesTillEnd = boardWidth*boardHeight + 1;
       boolean valid = False;
       for (ByteWritable value: values) {
-        int currentStatus = value.get() & 3;
+        int currentStatus = getStatus(value.get() & 3);
         int currentMovesTillEnd = value.get() >> 2;
         if (currentMovesTillEnd == 0) {
           valid = true;
         }
-
+        if (currentStatus == bestStatus) {
+          if (currentStatus < 2) {
+            if (currentMovesTillEnd > bestMovesTillEnd) {
+              bestMovesTillEnd = currentMovesTillEnd;
+            }
+          } else {
+            if (currentMovesTillEnd < bestMovesTillEnd) {
+              bestMovesTillEnd = currentMovesTillEnd;
+            }
+          }
+        } else if (currentStatus > bestStatus) {
+          bestStatus = currentStatus;
+          bestMovesTillEnd = currentMovesTillEnd;
+        }
       }
     }
 
@@ -107,8 +120,6 @@ public class SolveMoves {
         }
       }
     }
-
-
 
 
     @Override
