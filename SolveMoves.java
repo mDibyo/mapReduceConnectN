@@ -81,12 +81,30 @@ public class SolveMoves {
       int leastMovesTillEnd = boardWidth*boardHeight + 1;
       boolean valid = False;
       for (ByteWritable value: values) {
-        int currentStatus = value & 3;
-        int currentMovesTillEnd = value >> 2;
+        int currentStatus = value.get() & 3;
+        int currentMovesTillEnd = value.get() >> 2;
         if (currentMovesTillEnd == 0) {
           valid = true;
         }
 
+      }
+    }
+
+    private int getStatus(ByteWritable realStatus) {
+      if (realStatus == 3) {
+        return 1;
+      } else if (OTurn) {
+        if (realStatus == 1) {
+          return 2;
+        } else {
+          return 0;
+        }
+      } else {
+        if (realStatus == 2) {
+          return 2;
+        } else {
+          return 0;
+        }
       }
     }
 
