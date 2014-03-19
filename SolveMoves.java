@@ -77,7 +77,7 @@ public class SolveMoves {
       // Find best value for this game board
       int bestStatus = 0;
       int bestMovesTillEnd = boardWidth*boardHeight + 1;
-      boolean isValid = False;
+      boolean isValid = false;
       for (ByteWritable value: values) {
         int currentStatus = getStatus(value.get() & 3);
         int currentMovesTillEnd = value.get() >> 2;
@@ -122,11 +122,11 @@ public class SolveMoves {
           allParentsArray[i] = allParents.get(i).get();
         }
         MovesWritable move = new MovesWritable(bestStatus, bestMovesTillEnd + 1, allParentsArray);
-        context.write(key, bestMove);
+        context.write(key, move);
       }
     }
 
-    private int getStatus(ByteWritable realStatus) {
+    private int getStatus(int realStatus) {
       if (realStatus == 3) {
         return 1;
       } else if (OTurn) {
