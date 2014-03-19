@@ -98,7 +98,6 @@ public class SolveMoves {
           bestStatus = currentStatus;
           bestMovesTillEnd = currentMovesTillEnd;
         }
-        System.out.println(currentStatus + ", " + bestStatus + ": " + currentMovesTillEnd + ", " + bestMovesTillEnd);
       }
       // If board is valid, generate parents and write to context
       if (isValid) {
