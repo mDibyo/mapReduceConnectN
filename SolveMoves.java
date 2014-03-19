@@ -44,7 +44,6 @@ public class SolveMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       int[] moves = val.getMoves();
-      // System.out.println(val.getMovesToEnd());
       for (int i = 0; i < moves.length; i++) {
         context.write(new IntWritable(moves[i]), new ByteWritable(val.getValue()));
       }
@@ -77,32 +76,14 @@ public class SolveMoves {
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
       // Find best value for this game board
       int bestStatus = 0;
-      // int leastMovesTillEnd = boardWidth*boardHeight + 1;
-      // int mostMovesTillEnd = 0;
       int bestMovesTillEnd = 0;
       boolean isValid = false;
       for (ByteWritable value: values) {
         int currentStatus = getWinStatus(value.get() & 3);
-        // System.out.println(currentStatus);
         int currentMovesTillEnd = (int) (value.get() >> 2);
-        // System.out.println(currentMovesTillEnd);
         if (currentMovesTillEnd == 0) {
           isValid = true;
-        } /*
-        if (currentStatus == bestStatus) {
-          if (currentStatus < 2) {
-            if (currentMovesTillEnd > leastMovesTillEnd) {
-              leastMovesTillEnd = currentMovesTillEnd;
-            }
-          } else {
-            if (currentMovesTillEnd < bestMovesTillEnd) {
-              bestMovesTillEnd = currentMovesTillEnd;
-            }
-          }
-        } else if (currentStatus > bestStatus) {
-          bestStatus = currentStatus;
-          bestMovesTillEnd = currentMovesTillEnd;
-        } */
+        }
         if (currentStatus == bestStatus) {
           if (currentStatus < 2) {
             if (currentMovesTillEnd > bestMovesTillEnd) {
@@ -118,13 +99,7 @@ public class SolveMoves {
           bestMovesTillEnd = currentMovesTillEnd;
         }
         System.out.println(currentStatus + ", " + bestStatus + ": " + currentMovesTillEnd + ", " + bestMovesTillEnd);
-      } /*
-      bestMovesTillEnd = mostMovesTillEnd;
-      if (bestStatus == 2) {
-        bestMovesTillEnd = leastMovesTillEnd;
-      } */
-      // System.out.println((bestStatus == 2) + "\t:" + bestMovesTillEnd);
-      System.out.println("+++++++++++++++++++++");
+      }
       // If board is valid, generate parents and write to context
       if (isValid) {
         char player = 'O';
@@ -147,16 +122,12 @@ public class SolveMoves {
         for (int i = 0; i < allParents.size(); i++) {
           allParentsArray[i] = allParents.get(i).get();
         }
-        // System.out.print(bestMovesTillEnd);
-        // System.out.print("=>");
-        // System.out.println(bestMovesTillEnd + 1);
         MovesWritable move = new MovesWritable(getRealStatus(bestStatus), bestMovesTillEnd + 1, allParentsArray);
         context.write(key, move);
       }
     }
 
     private int getWinStatus(int realStatus) {
-      // System.out.println(realStatus);
       if (realStatus == 3) {
         return 1;
       } else if (OTurn) {
@@ -191,92 +162,6 @@ public class SolveMoves {
         }
       }
     }
-
-    /*
-    @Override
-    public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {   
-      HashMap<MovesWritable, Integer> dict = new HashMap<MovesWritable, Integer>();
-      HashMap<MovesWritable, Integer> win = new HashMap<MovesWritable, Integer>();
-      HashMap<MovesWritable, Integer> tie = new HashMap<MovesWritable, Integer>();
-      HashMap<MovesWritable, Integer> loss = new HashMap<MovesWritable, Integer>();
-      for (ByteWritable value: values) {
-        MovesWritable move = new MovesWritable();
-        move.setValue(value.get());
-        if (!dict.containsKey(move)) {
-          dict.put(move, 1);
-        } else {
-          dict.put(move, dict.get(move) + 1);
-        }
-      }
-      // Minimax to find best move
-      int winStatus = 2;
-      char player = 'O';
-      if (OTurn) {
-        winStatus = 1;
-        player = 'X';
-      }
-      for (MovesWritable move: dict.keySet()) {
-        if (dict.get(move) == 1) {
-          if (move.getMovesToEnd() != 0) {
-            continue;
-          }
-        }
-        int status = move.getStatus();
-        if (status == winStatus) {
-          win.put(move, move.getMovesToEnd());
-        } else if (status == 3) {
-          tie.put(move, move.getMovesToEnd());
-        } else if (status != 0) {
-          loss.put(move, move.getMovesToEnd());
-        }
-      }
-      MovesWritable bestMove = new MovesWritable();
-      if (!win.isEmpty()) {
-        int bestNumberOfMoves = boardWidth * boardHeight + 1;
-        for (MovesWritable move: win.keySet()) {
-          if (move.getMovesToEnd() < bestNumberOfMoves) {
-            bestMove = move;
-            bestNumberOfMoves = bestMove.getMovesToEnd();
-          }
-        }
-      } else if (!tie.isEmpty()) {
-        int bestNumberOfMoves = 0;
-        for (MovesWritable move: tie.keySet()) {
-          if (move.getMovesToEnd() > bestNumberOfMoves) {
-            bestMove = move;
-            bestNumberOfMoves = bestMove.getMovesToEnd();
-          }
-        }
-      } else if (!loss.isEmpty()) {
-        int bestNumberOfMoves = 0;
-        for (MovesWritable move: loss.keySet()) {
-          if (move.getMovesToEnd() > bestNumberOfMoves) {
-            bestMove = move;
-            bestNumberOfMoves = bestMove.getMovesToEnd();
-          }
-        }
-      }
-      // Work on best move
-      String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      bestMove.setMovesToEnd(bestMove.getMovesToEnd() + 1);
-      ArrayList<IntWritable> allParents = new ArrayList<IntWritable>(1);
-      for (int i = 0; i < boardWidth; i++) {
-        for (int j = boardHeight - 1; j >= 0; j--) {
-          if (currentState.charAt(i*boardHeight + j) == player) {
-            char[] parentCharArray = currentState.toCharArray();
-            parentCharArray[i*boardHeight + j] = ' ';
-            allParents.add(new IntWritable(Proj2Util.gameHasher(new String(parentCharArray), boardWidth, boardHeight)));
-            break;
-          }
-        }
-      }
-      int [] allParentsArray = new int[allParents.size()];
-      for (int i = 0; i < allParents.size(); i++) {
-        allParentsArray[i] = allParents.get(i).get();
-      }
-      bestMove.setMoves(allParentsArray);
-      context.write(key, bestMove);
-    } */
 
   }
 }

@@ -51,7 +51,6 @@ public class PossibleMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
-      // System.out.println(gameState(currentState));
       char player = 'X';
       if (OTurn) {
         player = 'O';
@@ -62,8 +61,6 @@ public class PossibleMoves {
             if (currentState.charAt(i*boardHeight + j) == ' ') {
               char[] futureCharArray = currentState.toCharArray();
               futureCharArray[i*boardHeight + j] = player;
-              // System.out.println(new String(futureCharArray));
-              // System.out.println(gameState(new String(futureCharArray)));
               context.write(new IntWritable(Proj2Util.gameHasher(new String(futureCharArray), boardWidth, boardHeight)), key);
               break;
             } 
@@ -125,11 +122,6 @@ public class PossibleMoves {
       for (int i = 0; i < parents.size(); i++) {
         parentsArray[i] = parents.get(i).intValue();
       }
-      // Integer[] parentsArray = parents.toArray(new Integer[parents.size()]);
-      // int[] intParentsArray = new int[parentsArray.length];
-      // for (int i = 0; i < parentsArray.length; i++) {
-      //   intParentsArray[i] = parentsArray[i].intValue();
-      // }
       currentState.setMoves(parentsArray);
       if (Proj2Util.gameFinished(gameState, boardWidth, boardHeight, connectWin)) {
         if (OTurn) {
@@ -144,10 +136,7 @@ public class PossibleMoves {
           currentState.setStatus(0);
         }
       }
-      // System.out.println(currentState.getStatus());
-      // System.out.println(currentState.getMovesToEnd());
       context.write(key, currentState);
-      // System.out.println(currentState.getMovesToEnd());
     }
   }
 }
