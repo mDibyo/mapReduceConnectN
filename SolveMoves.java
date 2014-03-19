@@ -77,8 +77,10 @@ public class SolveMoves {
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
       // Find best value for this game board
       int bestStatus = 0;
-      int bestMovesTillEnd = boardWidth*boardHeight + 1;
-      boolean isValid = false;
+      int leastMovesTillEnd = boardWidth*boardHeight + 1;
+      int mostMovesTillEnd = 0;
+      int bestMovesTillEnd;
+      boolean isValid = false, isWin = false;
       for (ByteWritable value: values) {
         current.setValue(value.get());
         int currentStatus = getStatus(value.get() & 3);
@@ -86,11 +88,11 @@ public class SolveMoves {
         // System.out.println(currentMovesTillEnd);
         if (currentMovesTillEnd == 0) {
           isValid = true;
-        }
+        } /*
         if (currentStatus == bestStatus) {
           if (currentStatus < 2) {
-            if (currentMovesTillEnd > bestMovesTillEnd) {
-              bestMovesTillEnd = currentMovesTillEnd;
+            if (currentMovesTillEnd > leastMovesTillEnd) {
+              leastMovesTillEnd = currentMovesTillEnd;
             }
           } else {
             if (currentMovesTillEnd < bestMovesTillEnd) {
@@ -100,7 +102,26 @@ public class SolveMoves {
         } else if (currentStatus > bestStatus) {
           bestStatus = currentStatus;
           bestMovesTillEnd = currentMovesTillEnd;
+        } */
+        if (currentStatus == bestStatus) {
+          if (currentStatus < 2) {
+            if (currentMovesTillEnd > mostMovesTillEnd) {
+              mostMovesTillEnd = currentMovesTillEnd;
+            }
+          } else {
+            isWin = true;
+            if (currentMovesTillEnd < leastMovesTillEnd) {
+              leastMovesTillEnd = currentMovesTillEnd;
+            }
+          }
+        } else if (currentStatus > bestStatus) {
+          bestStatus = currentStatus;
+          mostMovesTillEnd = leastMovesTillEnd = currentMovesTillEnd;
         }
+      }
+      bestMovesTillEnd = mostMovesTillEnd;
+      if (isWin) {
+        bestMovesTillEnd = leastMovesTillEnd;
       }
       // If board is valid, generate parents and write to context
       if (isValid) {
