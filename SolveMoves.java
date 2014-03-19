@@ -43,9 +43,9 @@ public class SolveMoves {
      */
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
-      // just one copy but that one copy is not a turn of 0;
-      for (int move: val.getMoves()) {
-        context.write(new IntWritable(move), new ByteWritable(val.getValue()));
+      int[] moves = val.getMoves();
+      for (int i = 0; i < moves.length; i++) {
+        context.write(new IntWritable(moves[i]), new ByteWritable(val.getValue()));
       }
     }
   }
@@ -87,24 +87,16 @@ public class SolveMoves {
           dict.put(move, dict.get(move) + 1);
         }
       }
-      // for (MovesWritable move: dict.keySet()) {
-      //   if (dict.get(move) == 1) {
-      //     if (move.getMovesToEnd() != 0) {
-      //       dict.remove(move);
-      //     }
-      //   }
-      // }
       // Minimax to find best move
       int winStatus = 2;
-      char player = 'X';
-      if (!OTurn) {
+      char player = 'O';
+      if (OTurn) {
         winStatus = 1;
-        player = 'O';
+        player = 'X';
       }
       for (MovesWritable move: dict.keySet()) {
         if (dict.get(move) == 1) {
           if (move.getMovesToEnd() != 0) {
-            // dict.remove(move);
             continue;
           }
         }
