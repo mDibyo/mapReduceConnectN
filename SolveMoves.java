@@ -73,6 +73,14 @@ public class SolveMoves {
      * The reduce function for the second mapreduce that you should be filling out.
      */
     @Override
+    public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
+      
+    }
+
+
+
+
+    @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {   
       HashMap<MovesWritable, Integer> dict = new HashMap<MovesWritable, Integer>();
       HashMap<MovesWritable, Integer> win = new HashMap<MovesWritable, Integer>();
