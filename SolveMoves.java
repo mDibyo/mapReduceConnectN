@@ -74,7 +74,20 @@ public class SolveMoves {
      */
     @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
+      // Set up win/tie/loss statuses (win = 2, tie = 1, loss = 0)
       
+
+      int bestStatus = 0;
+      int leastMovesTillEnd = boardWidth*boardHeight + 1;
+      boolean valid = False;
+      for (ByteWritable value: values) {
+        int currentStatus = value & 3;
+        int currentMovesTillEnd = value >> 2;
+        if (currentMovesTillEnd == 0) {
+          valid = true;
+        }
+
+      }
     }
 
 
