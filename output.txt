@@ -2,3872 +2,1182 @@ rm -rf all_data
 mkdir all_data
 echo "0 0" >> all_data/temp
 time hadoop jar proj2.jar Proj2 3 3 3
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-10
-0
-0
-10
-0
-0
-10
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-0
-10
-10
-0
-10
-10
-0
-0
-10
-10
-0
-0
-0
-10
-0
-10
-10
-0
-10
-0
-10
-10
-10
-10
-0
-10
-10
-0
-0
-0
-10
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-10
-10
-10
-10
-0
-10
-0
-0
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-10
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-0
-10
-0
-10
-0
-10
-10
-0
-10
-10
-10
-10
-0
-10
-10
-0
-0
-10
-0
-10
-0
-0
-10
-0
-0
-10
-10
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-0
-10
-10
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-10
-10
-0
-0
-10
-0
-0
-10
-0
-0
-10
-10
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-10
-10
-10
-0
-0
-0
-10
-10
-0
-10
-0
-0
-10
-0
-0
-10
-10
-0
-10
-10
-0
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-10
-0
-0
-0
-0
-10
-10
-0
-0
-10
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-10
-10
-0
-10
-10
-10
-10
-10
-0
-10
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-0
-10
-10
-0
-0
-10
-10
-10
-0
-0
-0
-0
-10
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-0
-10
-0
-0
-10
-10
-10
-10
-10
-10
-0
-10
-10
-0
-10
-10
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-10
-0
-0
-10
-0
-0
-0
-0
-10
-0
-10
-0
-10
-10
-10
-10
-0
-10
-10
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-0
-10
-10
-0
-0
-0
-10
-10
-10
-0
-10
-10
-0
-0
-10
-0
-10
-10
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-10
-10
-10
-0
-0
-10
-10
-0
-10
-0
-10
-10
-10
-10
-10
-0
-10
-10
-0
-0
-0
-0
-0
-10
-0
-0
-10
-0
-10
-0
-0
-10
-0
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-10
-10
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-10
-0
-0
-10
-0
-0
-10
-10
-10
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-10
-0
-0
-0
-0
-0
-10
-0
-0
-0
-10
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-0
-0
-10
-0
-0
-10
-10
-0
-0
-10
-0
-0
-0
-10
-10
-0
-0
-10
-10
-10
-10
-0
-10
-10
-10
-10
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-10
-10
-0
-0
-10
-10
-10
-0
-0
-10
-10
-10
-0
-0
-0
-10
-0
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-10
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-10
-0
-0
-0
-10
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-10
-10
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-0
-0
-0
-0
-0
-10
-10
-0
-0
-10
-10
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-10
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-10
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-10
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-10
-0
-0
-0
-0
-10
-10
-0
-10
-0
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-10
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-0
-0
-10
-0
-10
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-10
-0
-10
-10
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-10
-10
-10
-10
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-0
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-10
-10
-10
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-10
-10
-10
-0
-0
-0
-0
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-10
-0
-10
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-0
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-10
-0
-10
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-10
-10
-0
-0
-0
-10
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-0
-0
-0
-10
-10
-10
-10
-10
-10
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
-10
-10
-0
-0
-0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:0
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:1
+false	:1
+false	:0
+false	:1
+false	:0
+false	:1
+false	:0

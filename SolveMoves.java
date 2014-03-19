@@ -44,7 +44,7 @@ public class SolveMoves {
     @Override
     public void map(IntWritable key, MovesWritable val, Context context) throws IOException, InterruptedException {
       int[] moves = val.getMoves();
-      System.out.println(val.getMovesToEnd());
+      // System.out.println(val.getMovesToEnd());
       for (int i = 0; i < moves.length; i++) {
         context.write(new IntWritable(moves[i]), new ByteWritable(val.getValue()));
       }
@@ -77,13 +77,13 @@ public class SolveMoves {
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
       // Find best value for this game board
       int bestStatus = 0;
-      int leastMovesTillEnd = boardWidth*boardHeight + 1;
-      int mostMovesTillEnd = 0;
-      int bestMovesTillEnd;
-      boolean isValid = false, isWin = false;
+      // int leastMovesTillEnd = boardWidth*boardHeight + 1;
+      // int mostMovesTillEnd = 0;
+      int bestMovesTillEnd = 0;
+      boolean isValid = false;
       for (ByteWritable value: values) {
-        current.setValue(value.get());
         int currentStatus = getStatus(value.get() & 3);
+        // System.out.println(currentStatus);
         int currentMovesTillEnd = (int) (value.get() >> 2);
         // System.out.println(currentMovesTillEnd);
         if (currentMovesTillEnd == 0) {
@@ -105,24 +105,24 @@ public class SolveMoves {
         } */
         if (currentStatus == bestStatus) {
           if (currentStatus < 2) {
-            if (currentMovesTillEnd > mostMovesTillEnd) {
-              mostMovesTillEnd = currentMovesTillEnd;
+            if (currentMovesTillEnd > bestMovesTillEnd) {
+              bestMovesTillEnd = currentMovesTillEnd;
             }
           } else {
-            isWin = true;
-            if (currentMovesTillEnd < leastMovesTillEnd) {
-              leastMovesTillEnd = currentMovesTillEnd;
+            if (currentMovesTillEnd < bestMovesTillEnd) {
+              bestMovesTillEnd = currentMovesTillEnd;
             }
           }
         } else if (currentStatus > bestStatus) {
           bestStatus = currentStatus;
-          mostMovesTillEnd = leastMovesTillEnd = currentMovesTillEnd;
+          bestMovesTillEnd = currentMovesTillEnd;
         }
-      }
+      } /*
       bestMovesTillEnd = mostMovesTillEnd;
-      if (isWin) {
+      if (bestStatus == 2) {
         bestMovesTillEnd = leastMovesTillEnd;
-      }
+      } */
+      System.out.println((bestStatus == 2) + "\t:" + bestMovesTillEnd);
       // If board is valid, generate parents and write to context
       if (isValid) {
         char player = 'O';
@@ -148,7 +148,7 @@ public class SolveMoves {
         // System.out.print(bestMovesTillEnd);
         // System.out.print("=>");
         // System.out.println(bestMovesTillEnd + 1);
-        MovesWritable move = new MovesWritable(bestStatus, bestMovesTillEnd, allParentsArray);
+        MovesWritable move = new MovesWritable(bestStatus, bestMovesTillEnd + 1, allParentsArray);
         context.write(key, move);
       }
     }
@@ -157,7 +157,7 @@ public class SolveMoves {
       // System.out.println(realStatus);
       if (realStatus == 3) {
         return 1;
-      } else if (OTurn) {
+      } else if (!OTurn) {
         if (realStatus == 1) {
           return 2;
         } else {

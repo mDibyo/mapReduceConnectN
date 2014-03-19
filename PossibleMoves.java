@@ -147,7 +147,7 @@ public class PossibleMoves {
       // System.out.println(currentState.getStatus());
       // System.out.println(currentState.getMovesToEnd());
       context.write(key, currentState);
-      System.out.println(currentState.getMovesToEnd());
+      // System.out.println(currentState.getMovesToEnd());
     }
   }
 }
