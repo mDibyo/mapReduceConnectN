@@ -74,17 +74,15 @@ public class SolveMoves {
      */
     @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {
-      // Set up win/tie/loss statuses (win = 2, tie = 1, loss = 0)
-      
-
+      // Find best value for this game board
       int bestStatus = 0;
       int bestMovesTillEnd = boardWidth*boardHeight + 1;
-      boolean valid = False;
+      boolean isValid = False;
       for (ByteWritable value: values) {
         int currentStatus = getStatus(value.get() & 3);
         int currentMovesTillEnd = value.get() >> 2;
         if (currentMovesTillEnd == 0) {
-          valid = true;
+          isValid = true;
         }
         if (currentStatus == bestStatus) {
           if (currentStatus < 2) {
@@ -100,6 +98,31 @@ public class SolveMoves {
           bestStatus = currentStatus;
           bestMovesTillEnd = currentMovesTillEnd;
         }
+      }
+      // If board is valid, generate parents and write to context
+      if (isValid) {
+        char player = 'O';
+        if (OTurn) {
+          player = 'X';
+        }
+        String currentState = Proj2Util.gameUnhasher(key.get(), boardWidth, boardHeight);
+        ArrayList<IntWritable> allParents = new ArrayList<IntWritable>(1);
+        for (int i = 0; i < boardWidth; i++) {
+          for (int j = boardHeight - 1; j >= 0; j--) {
+            if (currentState.charAt(i*boardHeight + j) == player) {
+              char[] parentCharArray = currentState.toCharArray();
+              parentCharArray[i*boardHeight + j] = ' ';
+              allParents.add(new IntWritable(Proj2Util.gameHasher(new String(parentCharArray), boardWidth, boardHeight)));
+              break;
+            }
+          }
+        }
+        int [] allParentsArray = new int[allParents.size()];
+        for (int i = 0; i < allParents.size(); i++) {
+          allParentsArray[i] = allParents.get(i).get();
+        }
+        MovesWritable move = new MovesWritable(bestStatus, bestMovesTillEnd + 1, allParentsArray);
+        context.write(key, bestMove);
       }
     }
 
@@ -121,7 +144,7 @@ public class SolveMoves {
       }
     }
 
-
+    /*
     @Override
     public void reduce(IntWritable key, Iterable<ByteWritable> values, Context context) throws IOException, InterruptedException {   
       HashMap<MovesWritable, Integer> dict = new HashMap<MovesWritable, Integer>();
@@ -205,6 +228,7 @@ public class SolveMoves {
       }
       bestMove.setMoves(allParentsArray);
       context.write(key, bestMove);
-    }
+    } */
+
   }
 }
