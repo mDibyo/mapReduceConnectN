@@ -52,7 +52,9 @@ proj2-hadoop: $(TARGET)
 	rm temp_data_that_will_be_erased
 	hc large dfs -mv hdfs:///all_data/temp_data_that_will_be_erased hdfs:///all_data/temp
 	time hc large jar proj2.jar Proj2 $(WIDTH) $(HEIGHT) $(CONNECT) $(HDFS_LOC)
-	hc large dfs -cat $(HDFS_LOC)/final/part-r-00000 > output_ec2.txt
+
+proj2-hadoop-output: $(TARGET)
+	hc large dfs -cat $(HDFS_LOC)/final/part-r-00000 | head -n 1000 > output_ec2.txt
 
 proj2-hadoop-clean:
 	hc large dfs -rmr hdfs:///all_data
