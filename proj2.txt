@@ -1,0 +1,42 @@
+cluster size: 6
+total number of mappers: 1*1 + 1*1 + 24*24 + 1*24 + 23*48 + 1176
+total number of reducers: 1*1 + 24*25 + 24*23 + 1
+mean processing rate (MB/s):
+- output size: 3,595,571,228 bytes
+- time taken: 45m30.699s
+speedup (over 6 clusters) jobs/unit time (ratio of times)
+price/GB processed: (Recall that an extra-large instance costs $0.68 per hour, rounded up to the nearest hour. )
+
+http://ec2-204-236-215-72.compute-1.amazonaws.com:50030/jobtracker.jsp
+start time: 16:21:38
+end time: 
+
+cluster size: 9
+total number of mappers:
+total number of reducers: 74
+mean processing rate (MB/s):
+- output size:
+- time taken:
+speedup (over 6 clusters) jobs/unit time (ratio if times)
+price/GB processed: (Recall that an extra-large instance costs $0.68 per hour, rounded up to the nearest hour. )
+
+cluster size: 12
+total number of mappers:
+total number of reducers: 98
+mean processing rate (MB/s):
+- output size:
+- time taken:
+speedup (over 6 clusters) jobs/unit time (ratio if times)
+price/GB processed: (Recall that an extra-large instance costs $0.68 per hour, rounded up to the nearest hour. )
+
+
+
+
+adding a combiner to each MapReduce process:
+- InitFirst - no
+- PossibleMoves
+- SolveMoves
+- FinalMoves
+
+
+dollars in EC2 credits used to complete the project

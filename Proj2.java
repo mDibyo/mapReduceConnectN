@@ -35,7 +35,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
  */
 public class Proj2 {
 
-    private static final int NUMBER_OF_REDUCERS = 24;
+    private static final int NUMBER_OF_REDUCERS = 36;
     /**
      * Sets up and runs each of the mapreduce jobs used to solve Connect N.
      *
